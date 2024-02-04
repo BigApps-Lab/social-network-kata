@@ -96,4 +96,5 @@ Pour en savoir plus sur les technologies utilisées dans ce projet, consultez le
 - [Prisma Documentation](https://www.prisma.io/)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS Documentation](https://tailwindcss.com/)
+
 # social-network-kata
