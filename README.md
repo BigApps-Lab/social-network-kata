@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Application de Réseau Social - Test Technique
 
-## Getting Started
+## Description
 
-First, run the development server:
+Ce projet est une application de réseau social simple permettant aux utilisateurs de publier des messages sur leur timeline personnelle, de lire les timelines d'autres utilisateurs, de suivre les timelines de plusieurs utilisateurs, de mentionner d'autres utilisateurs dans leurs messages, d'inclure des liens cliquables dans les messages et d'envoyer des messages directs privés.
+
+## Fonctionnalités
+
+- **Posting** : Les utilisateurs peuvent publier des messages sur leur timeline personnelle.
+- **Reading** : Les utilisateurs peuvent voir la timeline d'autres utilisateurs.
+- **Following** : Les utilisateurs peuvent s'abonner aux timelines d'autres utilisateurs et voir une liste agrégée de toutes leurs souscriptions.
+- **Mentions** (feature optionnel) : Les utilisateurs peuvent mentionner d'autres utilisateurs dans leurs messages avec le symbole “@”.
+- **Links** (feature optionnel) : Les utilisateurs peuvent inclure des liens cliquables dans leurs messages.
+- **Direct Messages** (feature optionnel) : Les utilisateurs peuvent envoyer des messages privés à d'autres utilisateurs.
+
+## Prérequis
+
+Pour démarrer le projet, vous devez avoir les éléments suivants installés sur votre système :
+
+- Docker
+- Docker Compose
+
+## Démarrage du Projet
+
+Pour démarrer le projet, suivez ces étapes :
+
+1. Clonez le dépôt du projet :
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/BigApps-Lab/social-network-kata.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Déplacez-vous dans le répertoire du projet :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd social-network-kata
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Renommer le fichier .env.exemple :
 
-## Learn More
+```bash
+mv .env.exemple .env
+```
 
-To learn more about Next.js, take a look at the following resources:
+3. Construisez et démarrez les conteneurs avec Docker Compose :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+docker-compose up --build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Après avoir exécuté ces commandes, l'application sera accessible à l'adresse
 
-## Deploy on Vercel
+```bash
+http://localhost:3000
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Pour mettre à jour le schéma de la base de données avec Prisma, exécutez :
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+npm run push:db
+```
+
+Cette commande est équivalente à `prisma db push`.
+
+Pour lancer Prisma Studio et interagir avec votre base de données via une interface utilisateur, exécutez :
+
+```bash
+npm run studio:db
+```
+
+Ceci ouvrira Prisma Studio à l'adresse `http://localhost:5555`.
+
+Après avoir exécuté ces commandes, l'application sera accessible à l'adresse `http://localhost:3000`.
+
+## Arrêt du Projet
+
+Pour arrêter le projet, utilisez la commande suivante :
+
+```bash
+docker-compose down
+```
+
+Cette commande arrêtera et supprimera les conteneurs créés par Docker Compose.
+
+## Structure du Projet
+
+- `app/` : Contient le code source de l'application Next.js.
+- `prisma/` : Contient le schéma de la base de données et les migrations Prisma.
+- `Dockerfile` : Définition pour construire l'image Docker de l'application.
+- `docker-compose.yml` : Configuration pour démarrer l'application avec ses services associés.
+
+## Ressources pour Aider le Candidat
+
+Pour en savoir plus sur les technologies utilisées dans ce projet, consultez les documentations officielles :
+
+- [Prisma Documentation](https://www.prisma.io/)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/)
